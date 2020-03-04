@@ -7,7 +7,7 @@ router.get('/generate', function (req, res) {
         expiresIn: '5d'
     });
 
-    res.send(token);    
+    res.status(200).send(token);    
 });
 
 module.exports = router;
