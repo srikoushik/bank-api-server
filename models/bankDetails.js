@@ -34,11 +34,11 @@ var getDetailsWithNameAndCity = function(params){
         // data count > 0 && offset > 0 - hasPrev: true
         const hasPrev = ((res.rowCount > 0) && (offset > 0)) ? true : false;
         // Remove the last record to give data for the asked limit
-        const data = res.rowCount > 0 ? res.rows.slice(0, limit-1) : res.rows;
+        const data = res.rowCount > 0 ? res.rows.slice(0, limit) : res.rows;
         
         resolve({
-          hasNext,
           hasPrev,
+          hasNext,
           data
         })
     })
