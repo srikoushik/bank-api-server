@@ -3,7 +3,7 @@ A simple node application which provides API's to get bank details using Postgre
 
 Node application is running on https://bank-api-server.herokuapp.com/
 
-For using cURL in online - https://reqbin.com/curl
+For using cURL in web - https://reqbin.com/curl
 
 # cURL commands:
 
