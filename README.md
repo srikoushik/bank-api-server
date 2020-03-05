@@ -22,3 +22,7 @@ NOTE:
 - Here are some of the available city and bank names
     - ALLAHABAD BANK, ANDHRA BANK, BANK OF BARODA, THE ANDHRA PRADESH STATE COOPERATIVE BANK LIMITED
     - CHENNAI, MUMBAI, PUNE
+
+## What I would do in further iterations:
+
+- Fuzzy match on the bank name.
