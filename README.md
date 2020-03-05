@@ -11,9 +11,9 @@ Download API collection and import to postman - https://github.com/srikoushik/ba
 
 1. API to generate token ``curl https://bank-api-server.herokuapp.com/auth/generate``
 
-2. API to get bank details with IFSC ``curl -H "token: <token>" https://bank-api-server.herokuapp.com/api/bankDetails/ifsc?ifsc=ANDB0002601``
+2. API to get bank details with IFSC ``curl -H "token: <token>" https://bank-api-server.herokuapp.com/api/bankDetails/ANDB0002601``
 
-3. API to get bank details with bankName and city ``curl -H "token: <token>" https://bank-api-server.herokuapp.com/api/bankDetails/nameAndCity?bankName=andhra%20bank&city=chennai&limit=20&offset=0``
+3. API to get bank details with bankName and city ``curl -H "token: <token>" https://bank-api-server.herokuapp.com/api/bankDetails?bankName=andhra%20bank&city=chennai&limit=5&offset=1``
 
 NOTE:
 

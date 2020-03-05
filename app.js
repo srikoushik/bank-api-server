@@ -5,13 +5,12 @@ const { Client } = require('pg');
 
 require('dotenv').config({ path: __dirname + '/bin/local.env' });
 
-// connect to postgres
-global.client = new Client({
+global.dbClient = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
 });
 
-client.connect();
+dbClient.connect();
 
 let authRoute = express.Router();
 let apiRoute = express.Router();
@@ -22,7 +21,6 @@ app.use('/api', apiRoute);
 apiRoute.use(function(req, res, next){
 	const token = req.headers['token'];
 	if (token) {
-    // verify token
 		jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
 			if (err) {
 				if (err.name === "TokenExpiredError") {

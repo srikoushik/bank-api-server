@@ -4,14 +4,13 @@ var getDetailsWithIfsc = function(params){
       text: 'SELECT * from bank_details where ifsc = $1',
       values: [params.ifsc],
     }
-  
+    
     return new Promise(function(resolve, reject) {
-      client
+      dbClient
       .query(query)
       .then(res => resolve(res.rows[0]))
       .catch(error => reject(error))
     });
-
 };
 
 var getDetailsWithNameAndCity = function(params){
@@ -26,19 +25,19 @@ var getDetailsWithNameAndCity = function(params){
   }
   
   return new Promise(function(resolve, reject) {
-    client
+    dbClient
     .query(query)
     .then(res => {
-        // Check the data count > limit - hasNext: true
-        const hasNext = (res.rowCount > limit) ? true : false;
-        // data count > 0 && offset > 0 - hasPrev: true
-        const hasPrev = ((res.rowCount > 0) && (offset > 0)) ? true : false;
-        // Remove the last record to give data for the asked limit
-        const data = res.rowCount > 0 ? res.rows.slice(0, limit) : res.rows;
-        // data count > limit - nextOffset: offset + limit
-        const nextOffset = (res.rowCount > limit) ? (offset + limit) : 'None';
-        // data count > 0 && offset > 0 - prevOffset: offset - 1
-        const prevOffset = ((res.rowCount > 0) && (offset > 0)) ? (offset - 1) : 'None';
+        const numberOfRecordsFetched = res.rowCount;
+        const conditionForPreviousOffset = ((numberOfRecordsFetched > 0) && (offset > 0));
+        const conditionForNextOffset = (numberOfRecordsFetched > limit);
+
+        const hasPrev = conditionForPreviousOffset ? true : false;
+        const hasNext = conditionForNextOffset ? true : false;
+        const prevOffset = conditionForPreviousOffset ? (offset - 1) : 'None';
+        const nextOffset = conditionForNextOffset ? (offset + limit) : 'None';
+
+        const data = numberOfRecordsFetched > 0 ? res.rows.slice(0, limit) : [];
 
         resolve({
           hasPrev,
