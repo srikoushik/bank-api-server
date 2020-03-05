@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "ed15c779-42de-49cc-883e-b8fe536bdad6",
+		"name": "bank-details",
+		"description": "- API's for getting the bank details.\n- API to generate a JWT token.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Generate token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bank-api-server.herokuapp.com/auth/generate",
+							"protocol": "https",
+							"host": [
+								"bank-api-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get bank details with IFSC",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODMzNzk4MjIsImV4cCI6MTU4MzgxMTgyMn0.E7ScJMzY0WwhSliXWPEzKo3SXUCAITvDtyhgCaSDvLk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://bank-api-server.herokuapp.com/api/bankDetails/ifsc?ifsc=ANDB0002601",
+					"protocol": "https",
+					"host": [
+						"bank-api-server",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"bankDetails",
+						"ifsc"
+					],
+					"query": [
+						{
+							"key": "ifsc",
+							"value": "ANDB0002601"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get bank details with bank name and city",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODMzODk3NjMsImV4cCI6MTU4MzgyMTc2M30.Q9O0YlQMRJBr6PFHVrfxTAVw4HbrBYaiIVD106ARn9E",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://bank-api-server.herokuapp.com/api/bankDetails/nameAndCity?bankName=andhra bank&limit=5&offset=4&city=chennai",
+					"protocol": "https",
+					"host": [
+						"bank-api-server",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"bankDetails",
+						"nameAndCity"
+					],
+					"query": [
+						{
+							"key": "bankName",
+							"value": "andhra bank"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "offset",
+							"value": "4"
+						},
+						{
+							"key": "city",
+							"value": "chennai"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b128b0b2-95f2-4f32-ae6c-60a9e43b4bd4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "93563be5-478d-4412-bdb9-3a16a57289fd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
