@@ -5,6 +5,8 @@ Node application is running on https://bank-api-server.herokuapp.com/
 
 For using cURL in web - https://reqbin.com/curl
 
+Download API collection and import to postman - https://github.com/srikoushik/bank-api-server/tree/master/postman_collection
+
 # cURL commands:
 
 1. API to generate token ``curl https://bank-api-server.herokuapp.com/auth/generate``
