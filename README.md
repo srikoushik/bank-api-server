@@ -19,3 +19,6 @@ NOTE:
 
 - 3rd API supports pagination.
 - Generate token and replace in the cURL for 2nd and 3rd API.
+- Here are some of the available city and bank names
+    - ALLAHABAD BANK, ANDHRA BANK, BANK OF BARODA, THE ANDHRA PRADESH STATE COOPERATIVE BANK LIMITED
+    - CHENNAI, MUMBAI, PUNE

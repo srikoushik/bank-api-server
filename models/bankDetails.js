@@ -16,8 +16,8 @@ var getDetailsWithIfsc = function(params){
 
 var getDetailsWithNameAndCity = function(params){
   
-  let offset = params.offset ? params.offset : 0;
-  let limit = params.limit ? params.limit : 20;
+  let offset = params.offset ? parseInt(params.offset) : 0;
+  let limit = params.limit ? parseInt(params.limit) : 20;
 
   const query = {
     name: 'bank-details-with-name-and-city',
@@ -30,15 +30,21 @@ var getDetailsWithNameAndCity = function(params){
     .query(query)
     .then(res => {
         // Check the data count > limit - hasNext: true
-        const hasNext = (res.rowCount > limit-1) ? true : false;
+        const hasNext = (res.rowCount > limit) ? true : false;
         // data count > 0 && offset > 0 - hasPrev: true
         const hasPrev = ((res.rowCount > 0) && (offset > 0)) ? true : false;
         // Remove the last record to give data for the asked limit
         const data = res.rowCount > 0 ? res.rows.slice(0, limit) : res.rows;
-        
+        // data count > limit - nextOffset: offset + limit
+        const nextOffset = (res.rowCount > limit) ? (offset + limit) : 'None';
+        // data count > 0 && offset > 0 - prevOffset: offset - 1
+        const prevOffset = ((res.rowCount > 0) && (offset > 0)) ? (offset - 1) : 'None';
+
         resolve({
           hasPrev,
           hasNext,
+          prevOffset,
+          nextOffset,
           data
         })
     })
