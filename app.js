@@ -3,7 +3,7 @@ let app = express();
 var jwt    = require('jsonwebtoken');
 const { Client } = require('pg');
 
-require('dotenv').config({ path: __dirname + '/bin/local.env' })
+require('dotenv').config({ path: __dirname + '/bin/local.env' });
 
 // connect to postgres
 global.client = new Client({
@@ -33,7 +33,7 @@ apiRoute.use(function(req, res, next){
             next();
 		});
 	} else {
-        return res.status(401).send("Token missing in the headers.")
+        return res.status(401).send("Token missing in the headers.");
 	}
 
 });
