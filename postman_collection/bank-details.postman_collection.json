@@ -45,7 +45,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://bank-api-server.herokuapp.com/api/bankDetails/ifsc?ifsc=ANDB0002601",
+					"raw": "https://bank-api-server.herokuapp.com/api/bankDetails/ALLA0210449",
 					"protocol": "https",
 					"host": [
 						"bank-api-server",
@@ -55,13 +55,7 @@
 					"path": [
 						"api",
 						"bankDetails",
-						"ifsc"
-					],
-					"query": [
-						{
-							"key": "ifsc",
-							"value": "ANDB0002601"
-						}
+						"ALLA0210449"
 					]
 				}
 			},
@@ -79,7 +73,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://bank-api-server.herokuapp.com/api/bankDetails/nameAndCity?bankName=andhra bank&limit=5&offset=4&city=chennai",
+					"raw": "https://bank-api-server.herokuapp.com/api/bankDetails?bankName=andhra bank&city=chennai&offset=1&limit=5",
 					"protocol": "https",
 					"host": [
 						"bank-api-server",
@@ -88,8 +82,7 @@
 					],
 					"path": [
 						"api",
-						"bankDetails",
-						"nameAndCity"
+						"bankDetails"
 					],
 					"query": [
 						{
@@ -97,16 +90,16 @@
 							"value": "andhra bank"
 						},
 						{
-							"key": "limit",
-							"value": "5"
+							"key": "city",
+							"value": "chennai"
 						},
 						{
 							"key": "offset",
-							"value": "4"
+							"value": "1"
 						},
 						{
-							"key": "city",
-							"value": "chennai"
+							"key": "limit",
+							"value": "5"
 						}
 					]
 				}
